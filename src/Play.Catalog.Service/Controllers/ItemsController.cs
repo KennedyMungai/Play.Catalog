@@ -33,4 +33,9 @@ public class ItemsController : ControllerBase
             DateTimeOffset.UtcNow
         )
     };
+
+    public IEnumerable<ItemDto> Get()
+    {
+        
+    }
 }
