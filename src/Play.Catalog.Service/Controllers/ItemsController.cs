@@ -52,6 +52,12 @@ public class ItemsController : ControllerBase
     [HttpPost]
     public ActionResult<ItemDto> Post(CreateItemDto createItemDto)
     {
-
+        var item = new ItemDto(
+                    Guid.NewGuid(),
+                    createItemDto.Name,
+                    createItemDto.Description,
+                    createItemDto.Price,
+                    DateTimeOffset.UtcNow
+            );
     }
 }
