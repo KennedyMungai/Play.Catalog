@@ -77,5 +77,7 @@ public class ItemsController : ControllerBase
             Description = updatedItem.Description,
             Price = updatedItem.Price
         };
+
+        var index = items.FindIndex(existingItem => existingItem.Id == id);
     }
 }
