@@ -10,6 +10,6 @@ public class ItemsController : ControllerBase
 {
     private static readonly List<ItemDto> items = new()
     {
-
-    }
+        new ItemDto(Guid.NewGuid(), "Potion", "Restores a small amount of HP", 5, DateTimeOffset.UtcNow)
+    };
 }
