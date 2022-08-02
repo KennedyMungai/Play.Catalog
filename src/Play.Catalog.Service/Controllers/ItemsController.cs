@@ -79,5 +79,8 @@ public class ItemsController : ControllerBase
         };
 
         var index = items.FindIndex(existingItem => existingItem.Id == id);
+        items[index] = updatedItem;
+
+        return NoContent();
     }
 }
