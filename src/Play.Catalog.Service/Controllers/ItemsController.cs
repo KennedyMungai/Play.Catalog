@@ -40,6 +40,7 @@ public class ItemsController : ControllerBase
         return items;
     }
 
+    [HttpGet("{id}")]
     public ItemDto GetById(Guid id)
     {
 
