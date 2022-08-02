@@ -6,5 +6,5 @@ namespace Play.Catalog.Service.Controllers;
 [Route("items")]
 public class ItemsController : ControllerBase
 {
-    
+    private static readonly List<ItemDto> items = new();
 }
