@@ -39,4 +39,9 @@ public class ItemsController : ControllerBase
     {
         return items;
     }
+
+    public ItemDto GetById(Guid id)
+    {
+
+    }
 }
