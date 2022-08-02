@@ -73,9 +73,9 @@ public class ItemsController : ControllerBase
                             .SingleOrDefault();
 
         var updatedItem = existingItem with {
-            Name = updatedItem.Name,
-            Description = updatedItem.Description,
-            Price = updatedItem.Price
+            Name = updateItemDto.Name,
+            Description = updateItemDto.Description,
+            Price = updateItemDto.Price
         };
 
         var index = items.FindIndex(existingItem => existingItem.Id == id);
