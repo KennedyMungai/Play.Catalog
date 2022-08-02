@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using Play.Catalog.Service.Dtos;
 
 namespace Play.Catalog.Service.Controllers;
