@@ -49,8 +49,9 @@ public class ItemsController : ControllerBase
         return item;
     }
 
+    [HttpPost]
     public ActionResult<ItemDto> Post(CreateItemDto createItemDto)
     {
-        
+
     }
 }
