@@ -59,5 +59,7 @@ public class ItemsController : ControllerBase
                     createItemDto.Price,
                     DateTimeOffset.UtcNow
             );
+
+        items.Add(item);
     }
 }
