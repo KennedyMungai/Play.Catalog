@@ -68,6 +68,8 @@ public class ItemsController : ControllerBase
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, UpdateItemDto updateItemDto)
     {
-
+        var existingItem = items
+                            .Where(item => item.Id == id)
+                            .SingleOrDefault();
     }
 }
