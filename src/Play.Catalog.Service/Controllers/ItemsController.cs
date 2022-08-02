@@ -37,6 +37,6 @@ public class ItemsController : ControllerBase
     [HttpGet]
     public IEnumerable<ItemDto> Get()
     {
-
+        return items;
     }
 }
