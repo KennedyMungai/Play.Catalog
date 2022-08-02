@@ -61,5 +61,7 @@ public class ItemsController : ControllerBase
             );
 
         items.Add(item);
+
+        return CreatedAtAction(nameof(GetById), new {id = item.Id}, item);
     }
 }
