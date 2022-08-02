@@ -71,5 +71,11 @@ public class ItemsController : ControllerBase
         var existingItem = items
                             .Where(item => item.Id == id)
                             .SingleOrDefault();
+
+        var updatedItem = existingItem with {
+            Name = updatedItem.Name,
+            Description = updatedItem.Description,
+            Price = updatedItem.Price
+        };
     }
 }
