@@ -67,6 +67,8 @@ public class ItemsController : ControllerBase
         return CreatedAtAction(nameof(GetById), new {id = item.Id}, item);
     }
 
+    // PUT /items/{id}
+
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, UpdateItemDto updateItemDto)
     {
