@@ -13,6 +13,9 @@ public class ItemsController : ControllerBase
     [HttpGet]
     public async Task<IEnumerable<ItemDto>> GetAsync()
     {
+        var items = (await itemsRepository.GetAllAsync())
+                    .Select(item => item.AsDto());
+
         return items;
     }
 
