@@ -87,4 +87,10 @@ public class ItemsController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(Guid id)
+    {
+
+    }
 }
