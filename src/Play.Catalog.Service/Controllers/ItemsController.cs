@@ -91,6 +91,6 @@ public class ItemsController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id)
     {
-
+        var index = items.FindIndex(existingItem => existingItem.Id == id);
     }
 }
