@@ -18,6 +18,6 @@ public class ItemsRepository
 
     public async Task<IReadOnlyCollection<Item>> GetAllAsync()
     {
-        
+        return await dbCollection.Find(filterBuilder.Empty).ToListAsync();
     }
 }
