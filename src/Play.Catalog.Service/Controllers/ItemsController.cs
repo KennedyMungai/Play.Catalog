@@ -71,16 +71,16 @@ public class ItemsController : ControllerBase
 
     // DELETE /items/{id}
     [HttpDelete("{id}")]
-    public IActionResult Delete(Guid id)
+    public async Task<IActionResult> DeleteAsync(Guid id)
     {
-        var index = items.FindIndex(existingItem => existingItem.Id == id);
+        var item = await itemsRepository.GetAsync(id);
 
-        if(index < 0)
+        if (item is null)
         {
             return NotFound();
         }
 
-        items.RemoveAt(index);
+        await itemsRepository.RemoveAsync(item.Id);
 
         return NoContent();
     }
