@@ -47,4 +47,10 @@ public class ItemsRepository
         FilterDefinition<Item> filter = filterBuilder.Eq(existingEntity => existingEntity.Id, entity.Id);
         await dbCollection.ReplaceOneAsync(filter, entity);
     }
+
+    public async Task RemoveAsync(Guid id)
+    {
+        FilterDefinition<Item> filter = filterBuilder.Eq(entity  => entity.Id, id);
+        await dbCollection.DeleteOneAsync(filter);
+    }
 }
