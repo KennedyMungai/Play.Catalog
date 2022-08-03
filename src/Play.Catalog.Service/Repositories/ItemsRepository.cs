@@ -20,4 +20,10 @@ public class ItemsRepository
     {
         return await dbCollection.Find(filterBuilder.Empty).ToListAsync();
     }
+
+    public async Task<Item> GetAsync(Guid id)
+    {
+        FilterDefinition<Item> filter = filterBuilder.Eq(entity  => entity.Id, id);
+        return await dbCollection.Find(filter).FirstOrDefaultAsync();
+    }
 }
