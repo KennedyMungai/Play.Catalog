@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
+using Play.Catalog.Service.Entities;
 using Play.Catalog.Service.Repositories;
 
 namespace Play.Catalog.Service.Controllers;
@@ -34,19 +35,18 @@ public class ItemsController : ControllerBase
 
     // POST /items
     [HttpPost]
-    public ActionResult<ItemDto> Post(CreateItemDto createItemDto)
+    public async Task<ActionResult<ItemDto>> PostAsync(CreateItemDto createItemDto)
     {
-        var item = new ItemDto(
-                    Guid.NewGuid(),
-                    createItemDto.Name,
-                    createItemDto.Description,
-                    createItemDto.Price,
-                    DateTimeOffset.UtcNow
-            );
+        var item = new Item {
+            Name = createItemDto.Name,
+            Description = createItemDto.Description,
+            Price = createItemDto.Price,
+            CreatedDate = DateTimeOffset.UtcNow
+        };
 
-        items.Add(item);
+        await itemsRepository.CreateAsync(item);
 
-        return CreatedAtAction(nameof(GetById), new {id = item.Id}, item);
+        return CreatedAtAction(nameof(GetByIdAsync), new {id = item.Id}, item);
     }
 
     // PUT /items/{id}
