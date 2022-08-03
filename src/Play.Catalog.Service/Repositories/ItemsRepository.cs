@@ -15,4 +15,9 @@ public class ItemsRepository
         var database = mongoClient.GetDatabase("Catalog");
         dbCollection = database.GetCollection<Item>(collectionName);
     }
+
+    public async Task<IReadOnlyCollection<Item>> GetAllAsync()
+    {
+        
+    }
 }
