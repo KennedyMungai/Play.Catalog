@@ -79,6 +79,11 @@ public class ItemsController : ControllerBase
                             .Where(item => item.Id == id)
                             .SingleOrDefault();
 
+        if (existingItem is null)
+        {
+            return NotFound();
+        }
+
         var updatedItem = existingItem with {
             Name = updateItemDto.Name,
             Description = updateItemDto.Description,
