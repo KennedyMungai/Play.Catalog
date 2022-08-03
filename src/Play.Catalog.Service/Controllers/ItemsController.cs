@@ -50,7 +50,6 @@ public class ItemsController : ControllerBase
     }
 
     // POST /items
-
     [HttpPost]
     public ActionResult<ItemDto> Post(CreateItemDto createItemDto)
     {
@@ -68,7 +67,6 @@ public class ItemsController : ControllerBase
     }
 
     // PUT /items/{id}
-
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, UpdateItemDto updateItemDto)
     {
@@ -88,6 +86,7 @@ public class ItemsController : ControllerBase
         return NoContent();
     }
 
+    // DELETE /items/{id}
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id)
     {
