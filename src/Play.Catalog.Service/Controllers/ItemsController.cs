@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
+using Play.Catalog.Service.Repositories;
 
 namespace Play.Catalog.Service.Controllers;
 
@@ -7,6 +8,8 @@ namespace Play.Catalog.Service.Controllers;
 [Route("items")]
 public class ItemsController : ControllerBase
 {
+    private readonly ItemsRepository? itemsRepository;
+
     [HttpGet]
     public IEnumerable<ItemDto> Get()
     {
