@@ -51,25 +51,20 @@ public class ItemsController : ControllerBase
 
     // PUT /items/{id}
     [HttpPut("{id}")]
-    public IActionResult Put(Guid id, UpdateItemDto updateItemDto)
+    public async Task<IActionResult> PutAsync(Guid id, UpdateItemDto updateItemDto)
     {
-        var existingItem = items
-                            .Where(item => item.Id == id)
-                            .SingleOrDefault();
+        var existingItem = await itemsRepository.GetAsync(id);
 
         if (existingItem is null)
         {
             return NotFound();
         }
 
-        var updatedItem = existingItem with {
-            Name = updateItemDto.Name,
-            Description = updateItemDto.Description,
-            Price = updateItemDto.Price
-        };
+        existingItem.Name = updateItemDto.Name;
+        existingItem.Description = updateItemDto.Description;
+        existingItem.Price = updateItemDto.Price;
 
-        var index = items.FindIndex(existingItem => existingItem.Id == id);
-        items[index] = updatedItem;
+        await itemsRepository.UpdateAsync(existingItem);
 
         return NoContent();
     }
