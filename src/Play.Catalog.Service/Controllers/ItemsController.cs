@@ -40,7 +40,7 @@ public class ItemsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public ItemDto GetById(Guid id)
+    public ActionResult<ItemDto> GetById(Guid id)
     {
         var item = items
                     .Where(item => item.Id == id)
