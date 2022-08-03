@@ -45,5 +45,6 @@ public class ItemsRepository
         }
 
         FilterDefinition<Item> filter = filterBuilder.Eq(existingEntity => existingEntity.Id, entity.Id);
+        await dbCollection.ReplaceOneAsync(filter, entity);
     }
 }
