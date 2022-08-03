@@ -26,4 +26,14 @@ public class ItemsRepository
         FilterDefinition<Item> filter = filterBuilder.Eq(entity  => entity.Id, id);
         return await dbCollection.Find(filter).FirstOrDefaultAsync();
     }
+
+    public async Task CreateAsync(Item entity)
+    {
+        if(entity is null)
+        {
+            throw new ArgumentNullException(nameof(entity));
+        }
+
+        await dbCollection.InsertOneAsync(entity);
+    }
 }
