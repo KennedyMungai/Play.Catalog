@@ -36,4 +36,14 @@ public class ItemsRepository
 
         await dbCollection.InsertOneAsync(entity);
     }
+
+    public async Task UpdateAsync(Item entity)
+    {
+        if(entity is null)
+        {
+            throw new ArgumentNullException(nameof(entity));
+        }
+
+        FilterDefinition<Item> filter = filterBuilder.Eq(existingEntity => existingEntity.Id, entity.Id);
+    }
 }
