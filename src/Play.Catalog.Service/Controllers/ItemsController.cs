@@ -46,6 +46,11 @@ public class ItemsController : ControllerBase
                     .Where(item => item.Id == id)
                     .SingleOrDefault();
 
+        if(item is null)
+        {
+            return NotFound();
+        }
+
         return item;
     }
 
