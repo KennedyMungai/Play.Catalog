@@ -93,5 +93,7 @@ public class ItemsController : ControllerBase
     {
         var index = items.FindIndex(existingItem => existingItem.Id == id);
         items.RemoveAt(index);
+
+        return NoContent();
     }
 }
