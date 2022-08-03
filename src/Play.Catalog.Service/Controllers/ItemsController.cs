@@ -20,18 +20,16 @@ public class ItemsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public ActionResult<ItemDto> GetById(Guid id)
+    public async Task<ActionResult<ItemDto>> GetByIdAsync(Guid id)
     {
-        var item = items
-                    .Where(item => item.Id == id)
-                    .SingleOrDefault();
+        var item = await itemsRepository.GetAsync(id);
 
         if(item is null)
         {
             return NotFound();
         }
 
-        return item;
+        return item.AsDto();
     }
 
     // POST /items
