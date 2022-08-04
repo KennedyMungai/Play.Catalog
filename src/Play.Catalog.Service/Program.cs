@@ -11,6 +11,8 @@ builder.Services.AddControllers( options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+BsonSerializer.RegisterSerializer(new GuidSerializer)
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
