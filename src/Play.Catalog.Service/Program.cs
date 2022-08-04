@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 
@@ -14,7 +15,7 @@ builder.Services.AddControllers( options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-BsonSerializer.RegisterSerializer(new GuidSerializer)
+BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType));
 
 var app = builder.Build();
 
