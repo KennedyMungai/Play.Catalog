@@ -15,7 +15,8 @@ builder.Services.AddControllers( options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType));
+BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
 
 var app = builder.Build();
 
