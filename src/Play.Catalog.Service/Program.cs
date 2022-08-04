@@ -1,3 +1,5 @@
+using MongoDB.Bson.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
